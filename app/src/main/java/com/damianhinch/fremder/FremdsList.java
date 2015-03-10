@@ -5,21 +5,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 
-public class Fremds_List extends ActionBarActivity
+public class FremdsList extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -52,7 +47,7 @@ public class Fremds_List extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, FremdsListFragment.newInstance(position + 1))
                 .commit();
     }
 
@@ -76,7 +71,6 @@ public class Fremds_List extends ActionBarActivity
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -107,9 +101,9 @@ public class Fremds_List extends ActionBarActivity
     }
 
     /**
-     * A placeholder fragment containing a simple view.
+     * A placeholder fragment containing a simple view. - wtf is this shit?
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class FremdsListFragment extends Fragment {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -120,15 +114,15 @@ public class Fremds_List extends ActionBarActivity
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static FremdsListFragment newInstance(int sectionNumber) {
+            FremdsListFragment fragment = new FremdsListFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
         }
 
-        public PlaceholderFragment() {
+        public FremdsListFragment() {
         }
 
         @Override
@@ -141,7 +135,7 @@ public class Fremds_List extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((Fremds_List) activity).onSectionAttached(
+            ((FremdsList) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
