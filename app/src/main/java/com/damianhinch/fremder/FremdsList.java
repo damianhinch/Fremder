@@ -32,6 +32,10 @@ public class FremdsList extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fremds_list);
 
+        setUpNavigationBar();
+    }
+
+    private void setUpNavigationBar() {
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
