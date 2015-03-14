@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,6 +35,17 @@ public class FremdsList extends ActionBarActivity
         setContentView(R.layout.activity_fremds_list);
 
         setUpNavigationBar();
+
+        RecyclerView fremdList = (RecyclerView) findViewById(R.id.fremd_recycle_view);
+//        fremdList.hasFixedSize(); // When changes in content don't change the layout size
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        fremdList.setLayoutManager(layoutManager);
+
+        final String[] testDataSet = {"Test 1", "Test 2", "Test Fat Blue"};
+        FremdAdapter fremdAdapter = new FremdAdapter(testDataSet);
+        fremdList.setAdapter(fremdAdapter);
+
+
     }
 
     private void setUpNavigationBar() {
